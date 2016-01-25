@@ -9,7 +9,10 @@
     </head>
 
     <body>
-        <p id="hours"></p>
-        <p id="meteo"></p>
+        <p id="hours"><image src="/view/ressources/image/load.gif"/></p>
+        <div id="meteo">
+            <p id="min"><image src="/view/ressources/image/load.gif"/></p>
+            <p id="max"><image src="/view/ressources/image/load.gif"/></p>
+        </div>
     </body>
 </html>
