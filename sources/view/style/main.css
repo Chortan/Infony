@@ -1,0 +1,79 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 25 janv. 2016, 22:13:48
+    Author     : root
+*/
+
+html, body{
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    overflow: hidden;
+}
+
+body{
+    background-image: url("/view/ressources/image/background/sky.png");
+    background-size: 110%;
+}
+
+div#time{
+    position: fixed;
+    margin: 0px;
+    padding: 0px;
+    
+    bottom: 20px;
+    right: 50px;
+    text-shadow: 1px #D0D0D0 ;
+}
+
+div#time p#hours{
+    font-size: 120px;
+    margin-bottom:20px;
+}
+div#time p#date{
+    font-size: 40px;
+}
+
+div#wheather{
+    margin: 0px;
+    padding: 0px;
+    font-size: 75px;
+}
+
+div#meteo p{
+    display: inline-block;
+}
+
+div#wheather p#min{
+    color: #2C75FF;
+}
+
+div#wheather p#max{
+    color: #D1B606;
+}
+
+div#load{
+    top:0px;
+    position: fixed;
+    padding-top:25%;
+    height: 100%;
+    width: 100%;
+    z-index: 5;
+    background-color: rgba(0,0,0,0.97);
+}
+div#load img{
+    display: block;
+    margin: auto;
+    text-align: center;
+    vertical-align: middle;
+}
+
+img#cloud{
+    position: fixed;
+    z-index: 0;
+    up: 50px;
+}
