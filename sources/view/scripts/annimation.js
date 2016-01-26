@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 var cloud = $("<img id='cloud' src='/view/ressources/image/background/cloud.png'/>");
+var sun = $("<img id='sun' src='/view/ressources/image/background/sun.png'/>");
 var upDown = true
 
 var moveCloudLeft = function(){
@@ -20,6 +21,7 @@ var moveCloudLeft = function(){
 
 $(document).ready(function(){
     $("body").children().first().before(cloud);
+    $("body").children().first().before(sun);
     cloud.css("up","0px");
     
     moveCloudLeft();

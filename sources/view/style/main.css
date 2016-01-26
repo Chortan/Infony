@@ -77,3 +77,10 @@ img#cloud{
     z-index: 0;
     up: 50px;
 }
+
+img#sun{
+    position: fixed;
+    top:30px;
+    right:40px;
+    width:100px;
+}

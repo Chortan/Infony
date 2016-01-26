@@ -18,7 +18,7 @@ var format00 = function(number){
 var getTime = function(){
     var dateDate = new Date(); 
     hours = format00(dateDate.getHours()) + ":" + format00(dateDate.getMinutes());       
-    date = getTextDay(dateDate.getUTCDay()) + ", le " + dateDate.getDay() + " " + getTextMouth(dateDate.getUTCMonth()) + " " + dateDate.getUTCFullYear();
+    date = getTextDay(dateDate.getUTCDay()) + ", le " + dateDate.getUTCDate() + " " + getTextMouth(dateDate.getUTCMonth()) + " " + dateDate.getUTCFullYear();
 }
 
 var getDate = function(){
@@ -48,6 +48,7 @@ var getWeather = function(city, postalCode){
         },
         error: function(result, status, xhr){
             alert("Unable to connect to "+meteoURL);
+            getWeather();
         }
 
     });
