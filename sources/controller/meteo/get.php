@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-if(isset($_GET["city"]) AND $_GET["postalCode"]){
+if(isset($_GET["city"]) AND isset($_GET["postalCode"])){
     $city = $_GET["city"];
     $postalCode = $_GET["postalCode"];
     
