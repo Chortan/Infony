@@ -1,0 +1,64 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 27 janv. 2016, 17:58:31
+    Author     : root
+*/
+
+div#time{
+    position: fixed;
+    margin: 0px;
+    padding: 0px;
+    
+    bottom: 20px;
+    right: 50px;
+    text-shadow: 1px #D0D0D0 ;
+}
+
+div#time p#hours{
+    font-size: 120px;
+    margin-bottom:20px;
+}
+div#time p#date{
+    font-size: 40px;
+}
+
+div#time.night p{
+    color: #FFFFFF;
+    text-shadow: 0px 0px 5px yellow;
+}
+
+div#time.day p{
+    color: #000000;
+    text-shadow: 0px 0px 5px #FFFFFF;
+}
+
+
+div#weather p{
+    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+    font-size: 50px;
+}
+
+div#weather p#min{
+    color: #2C75FF;
+}
+
+div#weather p#max{
+    color: #D1B606;
+    padding-left: 20px;
+}
+
+div#weather{
+    padding-left: 20px;
+    padding-right: 20px;
+    position: fixed;
+    bottom: 0px;
+    display: inline-block;
+    
+    background-color: rgba(255,255,255,0.1);
+}

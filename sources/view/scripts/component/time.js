@@ -1,10 +1,15 @@
-var tempMin = null;
-var tempMax = null;
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 var hours = null;
-var meteo = null;
 var date = null;
 
-var load = true;
+var day = true;
+var backgroundDay = "/view/ressources/image/background/sky.png";
+var backgroundNight = "/view/ressources/image/background/sky_night.png";
 
 
 var format00 = function(number){
@@ -21,62 +26,23 @@ var getTime = function(){
     date = getTextDay(dateDate.getUTCDay()) + ", le " + dateDate.getUTCDate() + " " + getTextMouth(dateDate.getUTCMonth()) + " " + dateDate.getUTCFullYear();
 }
 
-var getDate = function(){
-    
-}
-
-var getWeather = function(city, postalCode){
-    var meteoURL = "/controller/meteo/get.php";
-    $.ajax({
-        type:"GET", 
-        url:meteoURL,
-        data: "city=" + city + "&postalCode=" + postalCode,
-        dataType: "text",
-        success: function(data){
-            var html = $(data);
-            var today = html.find(".bloc-day-summary.active"); 
-                
-            tempMin = today.find(".min-temp").html().match("^[0-9\-]+");
-            tempMax = today.find(".max-temp").html().match("^[0-9\-]+");
-            meteo = today.find(".day-summary-image").html();
-            
-            setMeteo();
-            setTemperature();
-            if(load==true){
-                $("div#load").fadeOut(2000);
-            }
-        },
-        error: function(result, status, xhr){
-            alert("Unable to connect to "+meteoURL);
-            getWeather();
-        }
-
-    });
-}
-
 var setTime = function(){
     if(hours != null){
         $("p#hours").html(hours);
     }
     
-    if(date != null){
-        $("p#date").html(date);
-    }
-}
-
-var setMeteo = function(){
-    if(meteo != null){
-        $("p#meteo").html(meteo);
-    }
-}
-
-var setTemperature = function(){
-    if(tempMin != null){
-        $("div#wheather p#min").html(tempMin + "<span id='unity'>°C</span>");
+    if(parseInt(hours.match("^[0-9]+")) < 7 || parseInt(hours.match("^[0-9]+")) > 17){
+        $("body").css("background-image","url('"+ backgroundNight +"')");
+        day = false;
+        $("input[name=day]").val("1");
+    }else{
+        $("body").css("background-image","url('"+ backgroundDay +"')");
+        day = true;
+        $("input[name=day]").val("0");
     }
     
-    if(tempMax != null){
-        $("div#wheather p#max").html(tempMax + "<span id='unity'>°C</span>");
+    if(date != null){
+        $("p#date").html(date);
     }
 }
 
@@ -87,21 +53,6 @@ var autoRefreshTime = function(){
         autoRefreshTime();
     },1000);
 }
-
-var autoRefreshWheather = function(city,postalCode){
-    getWeather(city, postalCode);
-    setTemperature();
-    var refresh = setTimeout(function(){
-        autoRefreshWheather();
-    },60000);
-}
-
-$(document).ready(function(){
-    autoRefreshTime();
-    autoRefreshWheather("artolsheim","67390");
-});
-
-
 
 var getTextDay = function(numberDay){
     switch(numberDay) {
@@ -152,4 +103,12 @@ var getTextMouth = function(numberMounth){
         
     default: return "?";
     }    
+}
+
+var isDay = function(){
+    if($("input[name=day]").val()=="1"){
+        return false;
+    }else{
+        return true;
+    }   
 }
